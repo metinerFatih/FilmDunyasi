@@ -1,0 +1,26 @@
+﻿@model Film
+
+<h1>Filmi Düzenle</h1>
+<form asp-controller="Film" asp-action="Duzenle" method="post">
+    <div class="mb-2">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" readonly value="@Model.Id" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Ad"></label>
+        <input asp-for="Ad" class="form-control" type="text" value="@Model.Ad" />
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Puan"></label>
+        <input asp-for="Puan" class="form-control" type="text" value="@Model.Puan" />
+        <span asp-validation-for="Puan" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Yil">Yıl</label>
+        <input asp-for="Yil" class="form-control" type="text" value="@Model.Yil" />
+        <span asp-validation-for="Yil" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-warning">Düzenle</button>
+</form>
