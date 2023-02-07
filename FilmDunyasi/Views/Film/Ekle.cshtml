@@ -1,4 +1,4 @@
-﻿@model Film
+﻿@model FilmEkleViewModel
 
 <h1>Film Ekle</h1>
 <form asp-controller="Film" asp-action="Ekle" method="post">
@@ -23,7 +23,7 @@
             {
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <label class="d-flex align-items-center">
-                        <input type="checkbox" name="turler" value="@tur.Id" class="me-1" />
+                        <input type="checkbox" name="turler" value="@tur.Id" class="me-1" @(Model.Turler.Contains(tur.Id) ? "checked" : "")/>
                         @tur.Ad
                     </label>
                 </div>

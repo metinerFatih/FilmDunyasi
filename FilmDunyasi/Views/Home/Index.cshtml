@@ -1,8 +1,36 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HomeViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Filmler</h1>
+
+<form class="mb-2 d-flex" method="get">
+    <select asp-for="TurId" class="form-select me-2 flex-grow-1" asp-items="ViewBag.Turler">
+        <option value="">Tümü</option>
+    </select>
+    <button class="btn btn-primary">Listele</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Yıl</th>
+            <th>Puan</th>
+            <th>Türler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Filmler)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Yil</td>
+                <td>@item.Puan</td>
+                <td>
+                    @string.Join(", ", item.Turler.Select(x => x.Ad))
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
